@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-3-14 11:40:34 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="cn.edu.vo.hibernate.User" table="user" catalog="second_hand_market">
+        <id name="id" type="string">
+            <column name="id" length="50" />
+            <generator class="assigned" />
+        </id>
+        <property name="userName" type="string">
+            <column name="user_name" length="50" not-null="true">
+            </column>
+        </property>
+        <property name="userPwd" type="string">
+            <column name="user_pwd" length="50" not-null="true">
+            </column>
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="100">
+            </column>
+        </property>
+        <property name="birthday" type="date">
+            <column name="birthday" length="10">
+            </column>
+        </property>
+        <property name="className" type="string">
+            <column name="class_name" length="50">
+            </column>
+        </property>
+        <property name="balance" type="big_decimal">
+            <column name="balance" precision="10">
+            </column>
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="create_time" length="19">
+            </column>
+        </property>
+        <!-- name设定待映射的持久化类的属性名-->
+        <set name="books" cascade="save-update,delete" inverse="true">
+			<!--所关联的持久类对应的表的外键-->
+            <key column="user_id" />
+			<!--设定持久化所关联的类-->
+            <one-to-many class="cn.edu.vo.hibernate.Book" />
+        </set>
+        
+        
+    </class>
+</hibernate-mapping>

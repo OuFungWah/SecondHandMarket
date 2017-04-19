@@ -1,0 +1,29 @@
+<%@page pageEncoding="UTF-8"%>
+	<c:if test="${message!=null}">
+		<div class="alert alert-dismissable alert-warning">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+			<h4>
+				提示
+			</h4>${message}
+		</div>
+	</c:if>
+</div>
+<script type="text/javascript">
+	<!-- 退出登录 -->
+   	function doLogout(){
+   		window.location.href="${pageContext.request.contextPath}/logout.do";
+   	}
+</script>
+<script src="${pageContext.request.contextPath}/resources/bootstrap/js/jquery-3.1.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
+<script>
+	$(function(){
+	    $("#show-login-modal").click(function(){
+	      $("#login-modal").modal("toggle");
+	    });
+	    $("#show-add-book-modal").click(function(){
+	      $("#add-book-modal").modal("toggle");
+	    });
+	});
+</script>
+</body>
